@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+
+
+@font-face {
+  font-family: 'LT Superior';
+  src: url('../fonts/LTSuperior-Bold.woff2') format('woff2'),
+    url('../fonts/LTSuperior-Bold.woff') format('woff'),
+    url('../fonts/LTSuperior-Bold.otf') format('opentype'),
+    url('../fonts/LTSuperior-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LT Superior';
+  src: url('../fonts/LTSuperior-Semibold.woff2') format('woff2'),
+    url('../fonts/LTSuperior-Semibold.woff') format('woff'),
+    url('../fonts/LTSuperior-Semibold.otf') format('opentype'),
+    url('../fonts/LTSuperior-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LT Superior';
+  src: url('../fonts/LTSuperior-Medium.woff2') format('woff2'),
+    url('../fonts/LTSuperior-Medium.woff') format('woff'),
+    url('../fonts/LTSuperior-Medium.otf') format('opentype'),
+    url('../fonts/LTSuperior-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LT Superior';
+  src: url('../fonts/LTSuperior-Regular.woff2') format('woff2'),
+    url('../fonts/LTSuperior-Regular.woff') format('woff'),
+    url('../fonts/LTSuperior-Regular.otf') format('opentype'),
+    url('../fonts/LTSuperior-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// --- Применение переменных ---
+
+h1 {
+  font-family: var(--font-family-h1);
+  font-weight: var(--font-weight-h1);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2 {
+  font-family: var(--font-family-h2);
+  font-weight: var(--font-weight-h2);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+.title-l {
+  font-family: var(--font-family-title-l);
+  font-weight: var(--font-weight-title-l);
+  font-size: var(--font-size-title-l);
+  line-height: var(--line-height-title-l);
+}
+
+.title-m {
+  font-family: var(--font-family-title-m);
+  font-weight: var(--font-weight-title-m);
+  font-size: var(--font-size-title-m);
+  line-height: var(--line-height-title-m);
+}
+
+.body-l-regular {
+  font-family: var(--font-family-body-l-regular);
+  font-weight: var(--font-weight-body-l-regular);
+  font-size: var(--font-size-body-l-regular);
+  line-height: var(--line-height-body-l-regular);
+}
+
+.body-m-regular {
+  font-family: var(--font-family-body-m-regular);
+  font-weight: var(--font-weight-body-m-regular);
+  font-size: var(--font-size-body-m-regular);
+  line-height: var(--line-height-body-m-regular);
+}
+
+.body-m-medium {
+  font-family: var(--font-family-body-m-regular);
+  font-weight: var(--font-weight-body-m-regular);
+  font-size: var(--font-size-body-m-regular);
+  line-height: var(--line-height-body-m-regular);
+}
+
+.body-s-regular {
+  font-family: var(--font-family-body-s-regular);
+  font-weight: var(--font-weight-body-s-regular);
+  font-size: var(--font-size-body-s-regular);
+  line-height: var(--line-height-body-s-regular);
+}
+
+.body-s-medium {
+  font-family: var(--font-family-body-s-medium);
+  font-weight: var(--font-weight-body-s-medium);
+  font-size: var(--font-size-body-s-medium, 14px);
+  line-height: var(--line-height-body-s-medium, 150%);
+}
+
+.caption-s-semibold {
+  font-family: var(--font-family-caption-s-semibold);
+  font-weight: var(--font-weight-caption-s-semibold);
+  font-size: var(--font-size-caption-s-semibold);
+  line-height: var(--line-height-caption-s-semibold);
+}
+
+.btn-m {
+  font-family: var(--font-family-btn-m);
+  font-weight: var(--font-weight-btn-m);
+  font-size: var(--font-size-btn-m);
+  line-height: var(--line-height-btn-m);
+}
+
+.error-field {
+  font-family: var(--font-family-error-field);
+  font-weight: var(--font-weight-error-field);
+  font-size: var(--font-size-error-field);
+  line-height: var(--line-height-error-field);
+}
+
+.logo-description {
+  font-family: var(--font-family-logo-description);
+  font-weight: var(--font-weight-logo-description);
+  font-size: var(--font-size-logo-description);
+  line-height: var(--line-height-logo-description);
+}

@@ -1,0 +1,60 @@
+:root {
+  /* text/light */
+  --text-light-primary: #ffffff;
+  --text-light-secondary: #ffffff60;
+  --text-light-tertiary: #ffffff30;
+
+  /* text/dark */
+  --text-dark-primary: #0A0A0A;
+  --text-dark-secondary: #0A0A0A60;
+  --text-dark-tertiary:  #0A0A0A30;
+
+  /* accent/primary */
+  --accent-primary-default: #000000;
+  --accent-primary-hover: #CCB076;
+
+  /* accent/secondary */
+  --accent-secondary-default: #ffffff;
+  --accent-secondary-hover: #CCB076;
+
+  /* bg */
+  --bg-cta: #E1E0DC;
+
+  /* bg/light */
+  --bg-light-light: #f1f1f1;
+  --bg-light-extralight: #f6f6f6;
+  --bg-light-white: #ffffff;
+  --bg-light-10: #ffffff10;
+
+  /* bg/dark */
+  --bg-dark-dark: #0a0a0a;
+  --bg-dark-lightdark: #151515;
+  --bg-dark-10: #0a0a0a05;
+
+  /* stroke/light */
+  --stroke-light-100: #ffffff;
+  --stroke-light-50: #ffffff50;
+  --stroke-light-25: #ffffff25;
+  --stroke-light-15: #ffffff15;
+  --stroke-light-10: #ffffff10;
+
+  /* stroke/dark */
+  --stroke-dark-100: #0a0a0a;
+  --stroke-dark-50: #0a0a0a50;
+  --stroke-dark-25: #0a0a0a25;
+  --stroke-dark-15: #0a0a0a15;
+  --stroke-dark-10: #0a0a0a10;
+
+  /* systemstates */
+  --system-error: #fe3838;
+
+  /* ss/disable/light */
+  --ss-disable-light-30: #ffffff30;
+  --ss-disable-light-20: #ffffff20;
+  --ss-disable-light-10: #ffffff10;
+
+  /* ss/disable/dark */
+  --ss-disable-dark-30: #00000030;
+  --ss-disable-dark-20: #0a0a0a20;
+  --ss-disable-dark-10: #00000010;
+}

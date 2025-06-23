@@ -1,0 +1,210 @@
+// Шрифты и веса
+$font-family-lt-superior: 'LT Superior', sans-serif;
+$font-family-inter: 'Inter', sans-serif;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+
+// Брейкпоинты
+$bp-1920: 1920px;
+$bp-1440: 1440px;
+$bp-768: 768px;
+$bp-320: 320px;
+
+// --- Определяем CSS переменные для типографики ---
+
+:root {
+  /* 320 */
+  --font-family-h1: #{$font-family-lt-superior};
+  --font-weight-h1: #{$weight-semibold};
+  --font-size-h1: 26px;
+  --line-height-h1: 115%;
+
+  --font-family-h2: #{$font-family-lt-superior};
+  --font-weight-h2: #{$weight-semibold};
+  --font-size-h2: 20px;
+  --line-height-h2: 130%;
+
+  --font-family-title-l: #{$font-family-lt-superior};
+  --font-weight-title-l: #{$weight-semibold};
+  --font-size-title-l: 18px;
+  --line-height-title-l: 140%;
+
+  --font-family-title-m: #{$font-family-lt-superior};
+  --font-weight-title-m: #{$weight-semibold};
+  --font-size-title-m: 16px;
+  --line-height-title-m: 140%;
+
+  --font-family-body-l-regular: #{$font-family-lt-superior};
+  --font-weight-body-l-regular: #{$weight-regular};
+  --font-size-body-l-regular: 14px;
+  --line-height-body-l-regular: 150%;
+
+  --font-family-body-m-regular: #{$font-family-lt-superior};
+  --font-weight-body-m-regular: #{$weight-regular};
+  --font-size-body-m-regular: 14px;
+  --line-height-body-m-regular: 150%;
+
+  --font-family-body-s-regular: #{$font-family-lt-superior};
+  --font-weight-body-s-regular: #{$weight-regular};
+  --font-size-body-s-regular: 12px;
+  --line-height-body-s-regular: 150%;
+
+  --font-family-caption-s-semibold: #{$font-family-lt-superior};
+  --font-weight-caption-s-semibold: #{$weight-semibold};
+  --font-size-caption-s-semibold: 10px;
+  --line-height-caption-s-semibold: auto;
+
+  --font-family-btn-m: #{$font-family-lt-superior};
+  --font-weight-btn-m: #{$weight-medium};
+  --font-size-btn-m: 16px;
+  --line-height-btn-m: 150%;
+
+  /* error_field — на 320 не указан, ниже в 768 */
+  --font-family-error-field: #{$font-family-lt-superior};
+  --font-weight-error-field: #{$weight-regular};
+  --font-size-error-field: 12px;
+  --line-height-error-field: 150%;
+
+  --font-family-logo-description: #{$font-family-lt-superior};
+  --font-weight-logo-description: #{$weight-regular};
+  --font-size-logo-description: 12px;
+  --line-height-logo-description: 150%;
+
+
+  --container-padding: 15px;
+  --header-padding: 15px;
+  --header-height: 74px;
+
+  --all-transition: all 0.3s ease-in-out;
+}
+
+/* 768 */
+@media (min-width: #{$bp-768}) {
+  :root {
+    --font-size-h1: 36px;
+    --line-height-h1: 115%;
+
+    --font-size-h2: 28px;
+    --line-height-h2: 130%;
+
+    --font-size-title-l: 22px;
+    --line-height-title-l: 140%;
+
+    --font-size-title-m: 18px;
+    --line-height-title-m: 150%;
+
+    --font-size-body-l-regular: 16px;
+    --line-height-body-l-regular: 150%;
+
+    --font-size-body-m-regular: 14px;
+    --line-height-body-m-regular: 150%;
+
+    --font-size-body-s-regular: 14px;
+    --line-height-body-s-regular: 150%;
+
+    --font-size-caption-s-semibold: 12px;
+    --line-height-caption-s-semibold: 150%;
+
+    --font-size-btn-m: 16px;
+    --line-height-btn-m: 150%;
+
+    --font-family-error-field: #{$font-family-inter};
+    --font-weight-error-field: #{$weight-regular};
+    --font-size-error-field: 12px;
+    --line-height-error-field: auto;
+
+    --font-size-logo-description: 12px;
+    --line-height-logo-description: 150%;
+  }
+}
+
+/* 1440 */
+@media (min-width: #{$bp-1440}) {
+  :root {
+    --font-size-h1: 50px;
+    --line-height-h1: 115%;
+
+    --font-size-h2: 34px;
+    --line-height-h2: 130%;
+
+    --font-size-title-l: 24px;
+    --line-height-title-l: 140%;
+
+    --font-size-title-m: 20px;
+    --line-height-title-m: 140%;
+
+    --font-size-body-l-regular: 16px;
+    --line-height-body-l-regular: 150%;
+
+    --font-size-body-m-regular: 14px;
+    --line-height-body-m-regular: 150%;
+
+    --font-family-body-s-medium: #{$font-family-lt-superior};
+    --font-weight-body-s-medium: #{$weight-medium};
+    --font-size-body-s-medium: 14px;
+    --line-height-body-s-medium: 150%;
+
+    --font-family-body-s-regular: #{$font-family-lt-superior};
+    --font-weight-body-s-regular: #{$weight-regular};
+    --font-size-body-s-regular: 14px;
+    --line-height-body-s-regular: 150%;
+
+    --font-size-caption-s-semibold: 12px;
+    --line-height-caption-s-semibold: 150%;
+
+    --font-weight-btn-m: #{$weight-regular};
+    --font-size-btn-m: 16px;
+    --line-height-btn-m: 150%;
+
+    --font-size-error-field: 12px;
+    --line-height-error-field: 150%;
+
+    --font-size-logo-description: 12px;
+    --line-height-logo-description: 150%;
+
+     --header-height: 66px;
+  }
+}
+
+/* 1920 */
+@media (min-width: #{$bp-1920}) {
+  :root {
+    --font-size-h1: 60px;
+    --line-height-h1: 115%;
+
+    --font-size-h2: 48px;
+    --line-height-h2: 130%;
+
+    --font-size-title-l: 32px;
+    --line-height-title-l: 130%;
+
+    --font-size-title-m: 24px;
+    --line-height-title-m: 150%;
+
+    --font-size-body-l-regular: 20px;
+    --line-height-body-l-regular: 150%;
+
+    --font-size-body-m-regular: 18px;
+    --line-height-body-m-regular: 150%;
+
+    --font-size-body-s-regular: 16px;
+    --line-height-body-s-regular: 150%;
+
+    --font-size-caption-s-semibold: 12px;
+    --line-height-caption-s-semibold: 150%;
+
+    --font-weight-btn-m: #{$weight-medium};
+    --font-size-btn-m: 18px;
+    --line-height-btn-m: auto;
+
+    --font-size-error-field: 12px;
+    --line-height-error-field: 150%;
+
+    --font-size-logo-description: 16px;
+    --line-height-logo-description: 150%;
+
+    --header-height: 78px;
+  }
+}
