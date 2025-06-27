@@ -51,7 +51,6 @@ const onMouseLeave = () => {
 const store = useScreenStore();
 
 const screenClass = computed(() => {
-  console.log(store.screen);
   return store.screen === "xxl" ? "body-s-regular" : "body-m-regular";
 });
 </script>

@@ -29,7 +29,7 @@ onMounted(async () => {
         slidesPerPage: 1,
 
         Autoplay: {
-          timeout: 994000,
+          timeout: 4000,
           progressbarParentEl: () => {
             return progressbarRefs.value[currentSlide.value.index] || null;
           },

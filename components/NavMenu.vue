@@ -26,7 +26,6 @@ const hiddenItems = ref<MenuItem[]>([]);
 const activeSubmenu = ref<string[]>([]);
 
 function updateMenuItems() {
-  console.log("wdw");
   if (!navRef.value || !itemRefs.value) return;
 
   const containerWidth = (navRef.value.clientWidth || 0) as number;
@@ -42,17 +41,8 @@ function updateMenuItems() {
     con.value = 0;
     return;
   }
-  console.log(
-    visibleItemsWidth + dempherRef.value < containerWidth,
-    visibleItemsWidth - dempherRef.value > containerWidth
-  );
-  console.log(
-    "containerWidth",
-    containerWidth,
-    "visibleItemsWidth",
-    visibleItemsWidth,
-    navRef.value
-  );
+
+
   if (
     visibleItemsWidth + dempherRef.value < containerWidth &&
     visibleItemsWidth - dempherRef.value > containerWidth
@@ -82,7 +72,6 @@ function showSubmenu(...args: string[]) {
 }
 
 function hideSubmenu(name: string) {
-  console.log(name, activeSubmenu.value);
   let ind = activeSubmenu.value.indexOf(name);
   if (ind !== -1) activeSubmenu.value = activeSubmenu.value.slice(0, ind + 1);
 }

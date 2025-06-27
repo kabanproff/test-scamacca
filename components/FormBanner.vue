@@ -72,13 +72,10 @@ async function handleSubmit(e: Event) {
       else form[key] = "";
     });
   } catch (err) {
-    console.log(err);
     if (err instanceof yup.ValidationError) {
       err.inner.forEach((e) => {
         if (e.path) errors[e.path as keyof typeof errors] = e.message;
       });
-
-      console.log(errors);
     }
   }
 }
