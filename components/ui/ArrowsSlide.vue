@@ -1,3 +1,25 @@
+<script setup lang="ts">
+const props = defineProps({
+  variant: {
+    type: String as PropType<"light" | "black">,
+    default: "light",
+  },
+  className: {
+    type: [String, Array, Object] as PropType<
+      string | string[] | Record<string, boolean>
+    >,
+    default: "",
+  },
+});
+
+const emit = defineEmits(["prev", "next"]);
+
+const classes = computed(() => [
+  `arrows-slide--${props.variant}`,
+  props.className,
+]);
+</script>
+
 <template>
   <div
     class="arrows-slide"
@@ -26,30 +48,12 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const props = defineProps({
-  variant: {
-    type: String as PropType<"light" | "black">,
-    default: "light",
-  },
-  className: {
-    type: [String, Array, Object] as PropType<
-      string | string[] | Record<string, boolean>
-    >,
-    default: "",
-  },
-});
-
-const classes = computed(() => [
-  `arrows-slide--${props.variant}`,
-  props.className,
-]);
-</script>
-
 <style lang="scss">
 .arrows-slide {
   --border-color: var(--stroke-light-25);
   --color-arrow: var(--text-light-primary);
+  --tr-width: 4px;
+  --tr-width-hover: 7px;
 
   display: flex;
   justify-content: center;
@@ -61,6 +65,13 @@ const classes = computed(() => [
   height: 50px;
   border: 1px solid var(--border-color);
   position: relative;
+
+  @media (min-width: 1920px) {
+    --tr-width: 11px;
+    --tr-width-hover: 3px;
+    width: 120px;
+    height: 60px;
+  }
 
   &--black {
     --border-color: var(--stroke-dark-25);
@@ -83,23 +94,32 @@ const classes = computed(() => [
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    transition: var(--all-transition);
     position: relative;
-    left: 4px;
 
-    &.next {
-      left: -4px;
+    svg {
+      position: relative;
+      transition: var(--all-transition);
+    }
+
+    &.prev svg {
+      left: var(--tr-width);
+    }
+
+    &.next svg {
+      left: calc(var(--tr-width) * -1);
     }
 
     &:hover {
-      transform: translateX(var(--tr-width));
-
-      &.prev {
-        --tr-width: -7px;
+      svg {
+        transform: translateX(var(--tr-width));
       }
 
-      &.next {
-        --tr-width: 7px;
+      &.prev svg {
+        --tr-width: calc(var(--tr-width-hover) * -1);;
+      }
+
+      &.next svg {
+        --tr-width: var(--tr-width-hover);
       }
     }
   }

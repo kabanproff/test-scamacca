@@ -6,17 +6,29 @@
   box-sizing: border-box;
 }
 
+html,body {
+  background-color: var(--bg-light-white);
+}
+
 body {
   margin: 0;
-  // padding: 50px 0 0;
   padding: 0;
-  font-family: "LT Superior", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--text-dark-primary, #222); 
-  background-color: var(--bg-light-white, #fff); 
+  color: var(--text-dark-primary); 
+  background-color: var(--bg-light-white); 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+
+  @media (min-width: 768px) {
+    --font-family-base: var(--font-family-body-l-regular);
+    --font-weight-base: var(--font-weight-body-l-regular);
+    --font-size-base: var(--font-size-body-l-regular);
+    --line-height-base: var(--line-height-body-l-regular);
+  }
 }
 
 main {

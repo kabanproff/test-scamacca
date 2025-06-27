@@ -26,6 +26,7 @@ const hiddenItems = ref<MenuItem[]>([]);
 const activeSubmenu = ref<string[]>([]);
 
 function updateMenuItems() {
+  console.log("wdw");
   if (!navRef.value || !itemRefs.value) return;
 
   const containerWidth = (navRef.value.clientWidth || 0) as number;
@@ -41,6 +42,17 @@ function updateMenuItems() {
     con.value = 0;
     return;
   }
+  console.log(
+    visibleItemsWidth + dempherRef.value < containerWidth,
+    visibleItemsWidth - dempherRef.value > containerWidth
+  );
+  console.log(
+    "containerWidth",
+    containerWidth,
+    "visibleItemsWidth",
+    visibleItemsWidth,
+    navRef.value
+  );
   if (
     visibleItemsWidth + dempherRef.value < containerWidth &&
     visibleItemsWidth - dempherRef.value > containerWidth
@@ -63,7 +75,6 @@ function updateMenuItems() {
 
   visibleItems.value = visible;
   hiddenItems.value = hidden;
-
 }
 
 function showSubmenu(...args: string[]) {
@@ -71,6 +82,7 @@ function showSubmenu(...args: string[]) {
 }
 
 function hideSubmenu(name: string) {
+  console.log(name, activeSubmenu.value);
   let ind = activeSubmenu.value.indexOf(name);
   if (ind !== -1) activeSubmenu.value = activeSubmenu.value.slice(0, ind + 1);
 }
@@ -90,7 +102,6 @@ onUnmounted(() => {
 });
 
 watch([visibleItems.value, hiddenItems.value], () => {
-
   if (props.isMobile) return;
   nextTick(() => {
     updateMenuItems();
@@ -114,6 +125,7 @@ watch([visibleItems.value, hiddenItems.value], () => {
         class="nav-menu__item"
         @mouseenter="showSubmenu(item.name)"
         @mouseleave="hideSubmenu(item.name)"
+        @click="hideSubmenu(item.name)"
         :class="{ active: item.submenu && activeSubmenu[0] === item.name }"
       >
         <a
@@ -122,6 +134,7 @@ watch([visibleItems.value, hiddenItems.value], () => {
         >
           {{ item.name }}
           <Icon
+            v-if="item.submenu?.length"
             name="fi-rr-angle-small-down"
             size="14"
           />
@@ -154,8 +167,7 @@ watch([visibleItems.value, hiddenItems.value], () => {
         @mouseleave="hideSubmenu('more')"
         ref="moreRef"
       >
-        <a
-          href="#"
+        <button
           class="nav-menu__link"
         >
           Еще
@@ -163,7 +175,7 @@ watch([visibleItems.value, hiddenItems.value], () => {
             name="fi-rr-angle-small-down"
             size="14"
           />
-        </a>
+        </button>
         <ul class="nav-menu__submenu">
           <li
             v-for="item in hiddenItems"
@@ -230,17 +242,12 @@ watch([visibleItems.value, hiddenItems.value], () => {
     padding: 5px 0;
     border-bottom: 1px solid var(--bg-dark-lightdark);
 
-    &:hover {
+    &:hover, &:active {
+
       & > .nav-menu__submenu {
-        height: auto;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-      }
-    }
-
-    &--more {
-      .nav-menu__submenu .nav-menu__submenu {
-        position: relative;
+        display: block;
       }
     }
 
@@ -267,11 +274,8 @@ watch([visibleItems.value, hiddenItems.value], () => {
   }
 
   &__submenu {
-    transition: var(--all-transition) overflow 0.7s ease;
+    display: none;
     position: relative;
-    overflow: hidden;
-    height: 0;
-    padding: 0;
     top: 100%;
     left: 0;
     list-style: none;
@@ -285,18 +289,17 @@ watch([visibleItems.value, hiddenItems.value], () => {
 
     @media screen and (min-width: 992px) {
       position: absolute;
-      border-width: 1;
+      border-width: 1px;
     }
 
     &-item {
-      margin: 0.25rem 0;
       position: relative;
 
       &:hover {
         color: var(--accent-primary-hover);
 
         & > .nav-menu__submenu {
-          height: auto;
+          display: block;
           padding-top: 0.5rem;
           padding-bottom: 0.5rem;
         }

@@ -5,18 +5,8 @@ export default defineNuxtConfig({
     baseURL: '/test-scamacca/'
   },
   css: [
-  //   '@/assets/css/variables.css',
     '@/assets/scss/main.scss',
   ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // additionalData: '@use "@/assets/css/_typografy.scss" as *;'
-        }
-      }
-    }
-  },
   devtools: { enabled: true },
-  modules: ['@nuxt/fonts', '@nuxt/image']
+  modules: ['@pinia/nuxt']
 })

@@ -12,8 +12,6 @@ $bp-1440: 1440px;
 $bp-768: 768px;
 $bp-320: 320px;
 
-// --- Определяем CSS переменные для типографики ---
-
 :root {
   /* 320 */
   --font-family-h1: #{$font-family-lt-superior};
@@ -72,12 +70,19 @@ $bp-320: 320px;
   --font-size-logo-description: 12px;
   --line-height-logo-description: 150%;
 
+  --font-weight-400: #{weight-regular};
+  --font-weight-500: #{weight-medium};
+  --font-weight-600: #{$weight-semibold};
+
 
   --container-padding: 15px;
   --header-padding: 15px;
   --header-height: 74px;
 
   --all-transition: all 0.3s ease-in-out;
+
+  --h1-margin-bottom: 15px;
+  --p-margin-bottom: 25px;
 }
 
 /* 768 */
@@ -117,6 +122,9 @@ $bp-320: 320px;
 
     --font-size-logo-description: 12px;
     --line-height-logo-description: 150%;
+
+    --h1-margin-bottom: 20px;
+    --p-margin-bottom: 35px;
   }
 }
 
@@ -164,7 +172,10 @@ $bp-320: 320px;
     --font-size-logo-description: 12px;
     --line-height-logo-description: 150%;
 
-     --header-height: 66px;
+    --header-height: 66px;
+
+    --h1-margin-bottom: 30px;
+    --p-margin-bottom: 45px;
   }
 }
 
@@ -205,6 +216,168 @@ $bp-320: 320px;
     --font-size-logo-description: 16px;
     --line-height-logo-description: 150%;
 
-    --header-height: 78px;
+    --header-height: 80px;
   }
 }
+
+:root {
+  // 1920
+  --font-weight-h1-1920: 600;
+  --font-size-h1-1920: 60px;
+  --line-height-h1-1920: 115%;
+  
+  --font-weight-h2-1920: 600;
+  --font-size-h2-1920: 48px;
+  --line-height-h2-1920: 130%;
+  
+  --font-weight-title-l-1920: 600;
+  --font-size-title-l-1920: 32px;
+  --line-height-title-l-1920: 130%;
+  
+  --font-weight-title-m-1920: 600;
+  --font-size-title-m-1920: 24px;
+  --line-height-title-m-1920: 150%;
+  
+  --font-weight-body-l-regular-1920: 400;
+  --font-size-body-l-regular-1920: 20px;
+  --line-height-body-l-regular-1920: 150%;
+  
+  --font-weight-body-m-regular-1920: 400;
+  --font-size-body-m-regular-1920: 18px;
+  --line-height-body-m-regular-1920: 150%;
+  
+  --font-weight-body-s-regular-1920: 400;
+  --font-size-body-s-regular-1920: 16px;
+  --line-height-body-s-regular-1920: 150%;
+  
+  --font-weight-caption-s-semibold-1920: 600;
+  --font-size-caption-s-semibold-1920: 12px;
+  --line-height-caption-s-semibold-1920: 150%;
+  
+  --font-weight-btn-m-1920: 500;
+  --font-size-btn-m-1920: 18px;
+  --line-height-btn-m-1920: auto;
+  
+  --font-weight-error-field-1920: 400;
+  --font-size-error-field-1920: 12px;
+  --line-height-error-field-1920: 150%;
+  
+  --font-weight-logo-description-1920: 400;
+  --font-size-logo-description-1920: 16px;
+  --line-height-logo-description-1920: 150%;
+  
+  // 1440
+  --font-weight-h1-1440: 600;
+  --font-size-h1-1440: 36px;
+  --line-height-h1-1440: 115%;
+  
+  --font-weight-h2-1440: 600;
+  --font-size-h2-1440: 28px;
+  --line-height-h2-1440: 130%;
+  
+  --font-weight-title-l-1440: 600;
+  --font-size-title-l-1440: 24px;
+  --line-height-title-l-1440: 130%;
+  
+  --font-weight-title-m-1440: 600;
+  --font-size-title-m-1440: 20px;
+  --line-height-title-m-1440: 150%;
+  
+  --font-weight-body-l-regular-1440: 400;
+  --font-size-body-l-regular-1440: 18px;
+  --line-height-body-l-regular-1440: 150%;
+  
+  --font-weight-body-m-regular-1440: 400;
+  --font-size-body-m-regular-1440: 14px;
+  --line-height-body-m-regular-1440: 150%;
+  
+  --font-weight-body-s-regular-1440: 400;
+  --font-size-body-s-regular-1440: 14px;
+  --line-height-body-s-regular-1440: 150%;
+  
+  --font-weight-caption-s-semibold-1440: 600;
+  --font-size-caption-s-semibold-1440: 12px;
+  --line-height-caption-s-semibold-1440: 150%;
+  
+  --font-weight-btn-m-1440: 500;
+  --font-size-btn-m-1440: 16px;
+  --line-height-btn-m-1440: auto;
+  
+  // 768
+  --font-weight-h1-768: 600;
+  --font-size-h1-768: 32px;
+  --line-height-h1-768: 115%;
+  
+  --font-weight-h2-768: 600;
+  --font-size-h2-768: 24px;
+  --line-height-h2-768: 130%;
+  
+  --font-weight-title-l-768: 600;
+  --font-size-title-l-768: 22px;
+  --line-height-title-l-768: 130%;
+  
+  --font-weight-title-m-768: 600;
+  --font-size-title-m-768: 18px;
+  --line-height-title-m-768: 140%;
+  
+  --font-weight-body-l-regular-768: 400;
+  --font-size-body-l-regular-768: 16px;
+  --line-height-body-l-regular-768: 150%;
+  
+  --font-weight-body-m-regular-768: 400;
+  --font-size-body-m-regular-768: 14px;
+  --line-height-body-m-regular-768: 150%;
+  
+  --font-weight-body-s-regular-768: 400;
+  --font-size-body-s-regular-768: 12px;
+  --line-height-body-s-regular-768: 150%;
+  
+  --font-weight-caption-s-semibold-768: 600;
+  --font-size-caption-s-semibold-768: 10px;
+  --line-height-caption-s-semibold-768: 150%;
+  
+  --font-weight-btn-m-768: 500;
+  --font-size-btn-m-768: 14px;
+  --line-height-btn-m-768: 150%;
+  
+  // 320
+  --font-weight-h1-320: 600;
+  --font-size-h1-320: 26px;
+  --line-height-h1-320: 115%;
+  
+  --font-weight-h2-320: 600;
+  --font-size-h2-320: 20px;
+  --line-height-h2-320: 130%;
+  
+  --font-weight-title-l-320: 600;
+  --font-size-title-l-320: 18px;
+  --line-height-title-l-320: 140%;
+  
+  --font-weight-title-m-320: 600;
+  --font-size-title-m-320: 16px;
+  --line-height-title-m-320: 140%;
+  
+  --font-weight-body-l-regular-320: 400;
+  --font-size-body-l-regular-320: 14px;
+  --line-height-body-l-regular-320: 150%;
+  
+  --font-weight-body-m-regular-320: 400;
+  --font-size-body-m-regular-320: 14px;
+  --line-height-body-m-regular-320: 150%;
+  
+  --font-weight-body-s-regular-320: 400;
+  --font-size-body-s-regular-320: 12px;
+  --line-height-body-s-regular-320: 150%;
+  
+  --font-weight-caption-s-semibold-320: 600;
+  --font-size-caption-s-semibold-320: 10px;
+  --line-height-caption-s-semibold-320: auto;
+  
+  --font-weight-btn-m-320: 500;
+  --font-size-btn-m-320: 16px;
+  --line-height-btn-m-320: 150%;
+
+  --font--weight-base: #{$weight-regular};
+  --font-size-base: 14px;
+  --line-height-base: 150%;
+  }

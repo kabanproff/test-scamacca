@@ -24,4 +24,8 @@ import Arrows from "@/components/ui/ArrowsSlide.vue";
   background-color: #545454;
   padding: 20px;
 }
+
+.btn {
+  margin-bottom: 20px;
+}
 </style>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { debounce } from "@/utils/helpers";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watchEffect } from "vue";
 
 import BurgerMenu from "./BurgerMenu.vue";
 import NavMenu from "./NavMenu.vue";
@@ -39,9 +38,10 @@ const menuItems = ref<MenuItem[]>([
   },
 ]);
 
-const isMobile = ref(false);
-const isHidden = ref(false);
+const screenStore = useScreenStore();
+
 const burgerMenuOpen = ref(false);
+const isHidden = ref(false);
 
 let lastScroll = 0;
 function onScroll() {
@@ -54,20 +54,17 @@ function onScroll() {
   lastScroll = currentScroll;
 }
 
-const onResize = debounce(() => {
-  isMobile.value = window.innerWidth <= 992;
-  if (!isMobile.value) burgerMenuOpen.value = false;
-}, 300);
+watchEffect(() => {
+  if (typeof window === "undefined" || !screenStore.width) return;
+  burgerMenuOpen.value = screenStore.isDesktop;
+});
 
 onMounted(() => {
   window.addEventListener("scroll", onScroll);
-  isMobile.value = window.innerWidth <= 992;
-  window.addEventListener("resize", onResize);
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", onScroll);
-  window.removeEventListener("resize", onResize);
 });
 </script>
 
@@ -80,7 +77,7 @@ onUnmounted(() => {
       <div class="header__box">
         <!-- Бургер меню только на мобилках -->
         <BurgerMenu
-          v-if="isMobile"
+          v-if="!screenStore.isDesktop"
           v-model="burgerMenuOpen"
         >
           <div class="container">
@@ -89,7 +86,7 @@ onUnmounted(() => {
             </span>
             <NavMenu
               :menuItems="menuItems"
-              :isMobile="isMobile"
+              :isMobile="!screenStore.isDesktop"
               className="header__nav body-m-regular"
             />
             <address class="header__address body-m-regular">
@@ -114,11 +111,12 @@ onUnmounted(() => {
 
         <!-- Навигация для десктопа -->
         <NavMenu
-          v-if="!isMobile"
+          v-if="screenStore.isDesktop"
           :menuItems="menuItems"
-          :isMobile="isMobile"
+          :isMobile="!screenStore.isDesktop"
           class="header__nav body-m-regular"
-        />
+        >
+        </NavMenu>
 
         <!-- Телефон и адрес -->
         <div class="header__contacts">
@@ -139,20 +137,20 @@ onUnmounted(() => {
 
         <!-- Лайки и сравнение -->
         <div class="header__bar">
-          <div class="header__likes">
+          <a href="#" class="header__likes">
             <Icon
               name="fi-rr-heart"
               size="24"
             />
             <span class="header__likes-count header__count">24</span>
-          </div>
-          <div class="header__compare body-m-medium">
+          </a>
+          <a href="#" class="header__compare body-m-medium">
             <Icon
               name="fi-rr-stats"
               size="24"
             />
             <span class="header__compare-count header__count">12</span>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -243,14 +241,21 @@ onUnmounted(() => {
       display: block;
       color: var(--text-dark-primary);
 
-      .nav-menu__list {
-        display: block;
+      .nav-menu {
+        &__list {
+          display: block;
+        }
+
+        &__item {
+          &:hover {
+            background-color: var(--accent-secondary-hover);
+          }
+        }
       }
     }
 
     @media (min-width: 992px) {
       display: flex;
-      width: 40%;
       margin-right: 20px;
     }
 

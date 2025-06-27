@@ -93,15 +93,14 @@ const toggleHover = () => {
 </template>
 
 <style lang="scss">
-:root {
+
+.btn {
   --btn-bg-color: var(--bg-dark-dark);
   --btn-border-color: transparent;
   --btn-text-color: var(--text-light-primary);
-}
 
-.btn {
   position: relative;
-  padding: 2px 46px 20px 14px;
+  padding: 3px 50px 20px 14px;
   border-radius: 8px;
   border: 1px solid var(--btn-border-color);
   background-color: var(--btn-bg-color);

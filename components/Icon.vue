@@ -10,6 +10,12 @@ const props = defineProps({
     type: [Number, String],
     default: 24,
   },
+  className: {
+    type: [String, Array, Object] as PropType<
+      string | string[] | Record<string, boolean>
+    >,
+    default: "",
+  },
 });
 </script>
 
@@ -19,12 +25,13 @@ const props = defineProps({
     :height="size"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    :class="className"
   >
     <use :href="`#${name}`" />
   </svg>
 </template>
 
-<style scoped>
+<style>
 svg {
   display: inline-block;
   vertical-align: middle;
