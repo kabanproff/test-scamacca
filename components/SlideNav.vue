@@ -6,14 +6,14 @@ const props = defineProps({
   countBars: Number,
   className: [String, Array, Object],
 });
-const barref = ref<(HTMLElement | null)[]>([]);  // локальный ref
-defineExpose({ barref });
+const progressbarRefs = ref<(HTMLElement | null)[]>(new Array(props.countBars).fill(null));
+defineExpose({ progressbarRefs });
 
 function setBarRef(el: HTMLElement | null, index: number) {
   if (el instanceof HTMLElement) {
-    barref.value[index] = el;
+    progressbarRefs.value[index] = el;
   } else {
-    barref.value[index] = null;
+    progressbarRefs.value[index] = null;
   }
 }
 

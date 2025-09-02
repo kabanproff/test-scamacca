@@ -19,7 +19,6 @@ const carouselRef = ref<HTMLElement | null>(null);
 let carouselInstance: ReturnType<typeof Carousel> | null = null;
 
 const currentSlide = ref({ index: 0 });
-const progressbarRefs = ref<HTMLElement[]>([]);
 const store = useScreenStore();
 
 onMounted(async () => {
@@ -33,7 +32,7 @@ onMounted(async () => {
         Autoplay: {
           timeout: 4000,
           progressbarParentEl: () => {
-            return progressbarRefs.value[currentSlide.value.index] || null;
+            return slideNavRef.value?.progressbarRefs[currentSlide.value.index] || null;
           },
         },
       },
