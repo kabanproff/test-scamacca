@@ -1,43 +1,42 @@
 <script setup lang="ts">
 import ArrowsSlide from "./ui/ArrowsSlide.vue";
+import { defineExpose } from 'vue';
 
-// const props = defineProps<{ countBars: number; className: string }>();
 const props = defineProps({
   countBars: Number,
-  barref: ref<HTMLElement | null>(null),
   className: [String, Array, Object],
 });
+const barref = ref<(HTMLElement | null)[]>([]);  // локальный ref
+defineExpose({ barref });
+
+function setBarRef(el: HTMLElement | null, index: number) {
+  if (el instanceof HTMLElement) {
+    barref.value[index] = el;
+  } else {
+    barref.value[index] = null;
+  }
+}
 
 const emit = defineEmits(["prev", "next"]);
 </script>
 
 <template>
-  <div
-    class="sl-nav"
-    :class="className"
-  >
-    <div
-      v-if="countBars"
-      class="sl-nav__bars"
-    >
+  <div class="sl-nav" :class="className">
+    <div v-if="countBars" class="sl-nav__bars">
       <div
         class="sl-nav__bar"
         v-for="bar in countBars"
         :key="bar - 1"
-        :ref="(el) =>(barref[bar - 1] = el)"
-      >
-      </div>
+        :ref="(el:HTMLElement) => setBarRef(el, bar - 1)"
+      ></div>
     </div>
 
     <div class="sl-nav__btns">
-      <ArrowsSlide
-        variant="light"
-        @prev="$emit('prev')"
-        @next="$emit('next')"
-      />
+      <ArrowsSlide variant="light" @prev="$emit('prev')" @next="$emit('next')" />
     </div>
   </div>
 </template>
+
 
 <style lang="scss">
 .sl-nav {

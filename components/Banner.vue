@@ -4,8 +4,10 @@ import "@fancyapps/ui/dist/carousel/carousel.autoplay.css";
 import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.js";
 import "@fancyapps/ui/dist/carousel/carousel.css";
 import { onBeforeUnmount, onMounted, ref } from "vue";
+import SlideNav from "./SlideNav.vue";
 
-import slide1 from "@/assets/images/slides/photo1.jpg";
+const  slide1 = "/images/photo1.jpg";
+const slideNavRef = ref<InstanceType<typeof SlideNav> | null>(null);
 
 const slides = [
   { image: slide1, alt: "Слайд 1" },
@@ -75,7 +77,7 @@ function nextSlide() {
         :key="slide.alt + index"
       >
       
-        <img
+        <NuxtImg
           :src="slide.image"
           :alt="slide.alt"
           class="banner__img"
@@ -104,9 +106,9 @@ function nextSlide() {
       />
 
       <SlideNav
+        ref="slideNavRef"
         className="banner__nav"
         :count-bars="slides.length"
-        :barref="progressbarRefs"
         @prev="prevSlide"
         @next="nextSlide"
       >

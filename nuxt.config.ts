@@ -8,5 +8,8 @@ export default defineNuxtConfig({
     '@/assets/scss/main.scss',
   ],
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt']
+  modules: ['@pinia/nuxt', '@nuxt/image'],
+  image: {
+    baseURL: '/test-scamacca/',
+  },
 })
