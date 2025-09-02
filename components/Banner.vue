@@ -6,7 +6,6 @@ import "@fancyapps/ui/dist/carousel/carousel.css";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 import slide1 from "@/assets/images/slides/photo1.jpg";
-import Slider from './Slider.vue';
 
 const slides = [
   { image: slide1, alt: "Слайд 1" },
@@ -102,7 +101,6 @@ function nextSlide() {
       <FormBanner
         v-if="store.isDesktop"
         className="banner__form"
-        v-memo="[]"
       />
 
       <SlideNav
